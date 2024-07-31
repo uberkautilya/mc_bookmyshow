@@ -1,8 +1,6 @@
 package uber.kautilya.machinecoding.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,11 +16,13 @@ public class Booking extends BaseModel {
     private List<ShowSeat> showSeats;
     private int amount;
     //Booking: Payments -> 1: M cardinality
+    //Even hold failed payments
     @OneToMany
     private List<Payment> payments;
     //Many: 1 -> Booking: User
     @ManyToOne
     private User bookedBy;
     private Date bookingDate;
+    @Enumerated(EnumType.STRING)
     private BookingStatus status;
 }

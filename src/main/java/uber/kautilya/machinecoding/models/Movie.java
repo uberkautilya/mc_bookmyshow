@@ -1,9 +1,6 @@
 package uber.kautilya.machinecoding.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,6 +15,9 @@ public class Movie extends BaseModel {
     private String year;
 
     private String genre;
+    @ElementCollection
     private List<String> actors;
+    @Enumerated(EnumType.STRING)
+    @ElementCollection
     private List<Language> languages;
 }

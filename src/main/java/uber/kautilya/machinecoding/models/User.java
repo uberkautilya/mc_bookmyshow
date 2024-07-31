@@ -9,7 +9,7 @@ import java.util.List;
 
 @Getter
 @Setter
-@Entity
+@Entity(name = "users") //MySQL reserves the name 'user'
 public class User extends BaseModel {
     private String username;
     private String password;

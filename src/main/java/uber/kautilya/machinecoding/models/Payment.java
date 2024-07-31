@@ -1,9 +1,6 @@
 package uber.kautilya.machinecoding.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,8 +14,11 @@ public class Payment extends BaseModel {
     private String referenceNumber;
     @Temporal(TemporalType.TIMESTAMP)
     private Date paymentDate;
+    @Enumerated(EnumType.ORDINAL)
     private PaymentStatus status;
+    @Enumerated(EnumType.ORDINAL)
     private PaymentMode mode;
+    @Enumerated(EnumType.ORDINAL)
     private PaymentGateway gateway;
     @ManyToOne
     private Booking booking;

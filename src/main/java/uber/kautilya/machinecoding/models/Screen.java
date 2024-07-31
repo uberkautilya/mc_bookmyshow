@@ -1,9 +1,6 @@
 package uber.kautilya.machinecoding.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,5 +15,8 @@ public class Screen extends BaseModel {
     private List<Seat> seatList;
     @ManyToOne
     private Theatre theatre;
+    @Enumerated(EnumType.ORDINAL)
+    @ElementCollection //Will result in a separate table with screed_id - feature_ordinal mapping
     private List<Feature> featureList;
 }
+// We create separate tables for enums
