@@ -1,5 +1,5 @@
 package uber.kautilya.machinecoding.models;
 
 public enum Feature {
-    2D, 3D, DOLBY
+    DOLBY, TWO_D, THREE_D, FOUR_K
 }
