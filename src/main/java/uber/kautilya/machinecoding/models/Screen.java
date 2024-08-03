@@ -12,11 +12,11 @@ import java.util.List;
 public class Screen extends BaseModel {
     private String name;
     @OneToMany
-    private List<Seat> seatList;
+    private List<Seat> seats;
     @ManyToOne
     private Theatre theatre;
     @Enumerated(EnumType.ORDINAL)
     @ElementCollection //Will result in a separate table with screed_id - feature_ordinal mapping
-    private List<Feature> featureList;
+    private List<Feature> features;
 }
 // We create separate tables for enums
